@@ -21,6 +21,16 @@ class Order(BaseModel):
     rain: int = Field(..., ge=0, le=1)
 
 
+@app.get("/")
+def root():
+    return {
+        "service": "Delivery Time Predictor API",
+        "status": "online",
+        "docs": "/docs",
+        "health": "/health"
+    }
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "model_loaded": model is not None}
