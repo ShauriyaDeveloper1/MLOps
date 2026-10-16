@@ -20,7 +20,7 @@ def config():
 
 @pytest.fixture(scope="session")
 def split(config):
-    data_path = HERE.parent.parent / "data" / "delivery_times.csv"
+    data_path = HERE.parent / "data" / "delivery_times.csv"
     orders = pd.read_csv(data_path)
     X = orders[config["data"]["features"]]
     y = orders[config["data"]["target"]]
